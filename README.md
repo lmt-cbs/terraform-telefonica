@@ -80,9 +80,10 @@ es conveneinte guardar este fichero para tener el plan
 ejecutamos el apply para hacer la provision que nos devolvera la
 uri del endpoint
 
-$ teraform plan -out <fichero>
+$ terraform plan -out <fichero>
 $ terraform apply
-   uri para conexion : https://zgseykv778.execute-api.us-east-1.amazonaws.com/test
+
+uri para conexion : https://xxxxxxxxxxx.execute-api.us-east-1.amazonaws.com/test
 
 
                                                                           1,1           Top
