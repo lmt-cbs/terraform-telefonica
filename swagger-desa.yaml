@@ -1,0 +1,62 @@
+---
+swagger: "2.0"
+info:
+  title: "tf-mc-azure-dev-es"
+basePath: "/desa"
+schemes:
+- "https"
+paths:
+  /generateBilling:
+    get:
+      responses: {}
+      x-amazon-apigateway-integration:
+        uri: ${get_lambda_generateBilling_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        timeoutInMillis: 29000
+        type: "aws_proxy"
+  /generateCurrentBillingCycle:
+    get:
+      responses: {}
+      x-amazon-apigateway-integration:
+        uri: ${get_lambda_generateCurrentBill_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        timeoutInMillis: 29000
+        type: "aws_proxy"
+  /getDiscount:
+    get:
+      responses: {}
+      x-amazon-apigateway-integration:
+        uri: ${get_lambda_getDiscount_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        timeoutInMillis: 29000
+        type: "aws_proxy"
+  /customer:
+    post:
+      responses: {}
+      x-amazon-apigateway-integration:
+        uri: ${get_lambda_customer_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        timeoutInMillis: 29000
+        type: "aws_proxy"
+  /checkCustomer:
+    get:
+      responses: {}
+      x-amazon-apigateway-integration:
+        uri: ${get_lambda_checkCustomer_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        timeoutInMillis: 29000
+        type: "aws_proxy"
+  /{proxy+}:
+    x-amazon-apigateway-any-method:
+      responses: {}
+      x-amazon-apigateway-integration:
+        uri: ${get_lambda_generateCurrentBill_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        timeoutInMillis: 29000
+        type: "aws_proxy"
