@@ -1,20 +1,23 @@
 # terraform-telefonica
 repo con los scripts de terraform para el api gateway
 
- Autor       : luis Merino Troncoso
- F. Creacion : 12/06/2019
- Descripcion : Script terraform para la creacion de un Api gateway http que ataca
-               a una lambda Sencilla estilo "hello world" para ello utilizamos la
-               funcionlidad workspace para separar los entornos de forma que
-               cada uno sea el "stack" y utilizamos el swagger-desa.yaml para
-               configurer el API de forma que no haya que escribir los metodos e
-               intergracion a mano.
-               Tambien crea la tabla dynamo que gurardara las confiuraciones de
-               cada ob al provisionar
+# Autor       : luis Merino Troncoso 
+# F. Creacion : 12/06/2019
 
-------------- Tareas a realizar en bash  ---------------------
+# Descripcion : 
+ Script terraform para la creacion de un Api gateway http que ataca
+ a una lambda Sencilla estilo "hello world" para ello utilizamos la
+ funcionlidad workspace para separar los entornos de forma que
+ cada uno sea el "stack" y utilizamos el swagger-desa.yaml para
+ configurer el API de forma que no haya que escribir los metodos e
+ integracion a mano.
+ Tambien crea la tabla dynamo que gurardara las confiuraciones de
+ cada ob al provisionar
+
+# ------------- Tareas a realizar en bash  ---------------------
 
 Instalar el cliente de aws ( awscli)
+
 configurar la autenticacion creando un profile con el nombre terransible
    $ aws configure --profile mc-azure-dev
 
@@ -31,7 +34,7 @@ Despues tenemos  que crear el entorno (workspace) con el nombre
 que queremos darle al stack ( en adelante Resource Group o RG) este nombre sera
 el que pasara como parametro.
 
-$terraform new workspace <nombre workspace>
+$ terraform new workspace <nombre workspace>
 
 Despues hay que crear el bucket que contendra el zip de los fuentes de Lambda
 
@@ -63,7 +66,7 @@ Permite exponer las lambdas
 tiene una llamada a la funcion output de forma que una vez hecho el deploy
 nos devuelve la url de nuestro endPoint
 
----------------------------------------
+# Inicializacion terraform 
 copiamos lambda.tf al mismo dir <terraform-mc>
 en este directorio inicializamos terraform con los parametros del backend en s3
 
